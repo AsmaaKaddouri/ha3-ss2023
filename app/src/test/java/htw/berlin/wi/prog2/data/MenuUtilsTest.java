@@ -47,13 +47,25 @@ class MenuUtilsTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+
+    @Test  // gibt an, dass es sich um einen JUnit-Testfall handelt.
     @DisplayName("should return an empty map when input map is empty")
+    // Die Methode EmptyInput() ist der eigentliche Testfall, der das erwartete Verhalten der Methode überprüft.
     void EmptyInput() {
+    // Zunächst wird eine leere Eingabe-Map namens "emptyMenu" erstellt, indem Collections.emptyMap() aufgerufen wird.
+    // Diese Map enthält keine Schlüssel-Wert-Paare.
         Map<Long, Ingredient> emptyMenu = Collections.emptyMap();
+
+    // Dann wird die Methode focusOnNameAndInvert mit der leeren Eingabe-Map aufgerufen
+    // und das tatsächliche Ergebnis in der Variable "actual" gespeichert.
         Map<String, Long> actual = MenuUtils.focusOnNameAndInvert(emptyMenu);
+
+    // Die erwartete Ausgabe ist ebenfalls eine leere Map, die mit Collections.emptyMap() erstellt
+    // und in der Variable "expected" gespeichert wird.
         Map<String, Long> expected = Collections.emptyMap();
 
+    // Schließlich wird mit assertEquals(expected, actual) überprüft,
+    // ob das tatsächliche Ergebnis der Methode "focusOnNameAndInvert" der erwarteten leeren Map entspricht.
         assertEquals(expected, actual);
 
     }
