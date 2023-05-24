@@ -51,7 +51,7 @@ class MenuUtilsTest {
     @Test  // gibt an, dass es sich um einen JUnit-Testfall handelt.
     @DisplayName("should return an empty map when input map is empty")
     // Die Methode EmptyInput() ist der eigentliche Testfall, der das erwartete Verhalten der Methode überprüft.
-    void EmptyInput() {
+    void focusOnNameAndInvert_EmptyInput() {
     // Zunächst wird eine leere Eingabe-Map namens "emptyMenu" erstellt, indem Collections.emptyMap() aufgerufen wird.
     // Diese Map enthält keine Schlüssel-Wert-Paare.
         Map<Long, Ingredient> emptyMenu = Collections.emptyMap();
@@ -86,5 +86,29 @@ class MenuUtilsTest {
         List<Ingredient> actualSorted = actual.stream().sorted(byName).collect(Collectors.toList());
 
         assertEquals(expectedSorted, actualSorted);
+    }
+
+    @Test // gibt an, dass es sich um einen JUnit-Testfall handelt.
+    @DisplayName("should return an empty list when input maps are empty")
+    // Die Methode ingredientsFromIdAndCount_EmptyInput() ist der eigentliche Testfall,
+    // der das erwartete Verhalten der Methode überprüft.
+    void ingredientsFromIdAndCount_EmptyInput() {
+
+    // Zunächst werden zwei leere Eingabe-Maps erstellt: "emptyCounts" für die Zutaten-IDs und Mengen und "emptyArticles" für die Zutaten selbst.
+    // Beide Maps enthalten keine Schlüssel-Wert-Paare.
+        Map<Long, Integer> emptyCounts = Collections.emptyMap();
+        Map<Long, Ingredient> emptyArticles = Collections.emptyMap();
+
+    // Dann wird die Methode ingredientsFromIdAndCount mit den leeren Eingabe-Maps aufgerufen
+    // und das tatsächliche Ergebnis in der Variable "actual" gespeichert.
+        List<Ingredient> actual = MenuUtils.ingredientsFromIdAndCount(emptyCounts, emptyArticles);
+
+    // Die erwartete Ausgabe ist ebenfalls eine leere Liste, die mit Collections.emptyList() erstellt
+    // und in der Variable "expected" gespeichert wird.
+        List<Ingredient> expected = Collections.emptyList();
+
+    // Schließlich wird mit assertEquals(expected, actual) überprüft,
+    // ob das tatsächliche Ergebnis der Methode "ingredientsFromIdAndCount" der erwarteten leeren Liste entspricht.
+        assertEquals(expected, actual);
     }
 }

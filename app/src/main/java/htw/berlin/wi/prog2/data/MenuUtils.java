@@ -42,6 +42,34 @@ public class MenuUtils {
     }
 
     public static List<Ingredient> ingredientsFromIdAndCount(Map<Long, Integer> idsAndCount, Map<Long, Ingredient> articles) {
-        return List.of(); // TODO hier implementieren und korrekte Ergebnis-Liste zurückgeben
+        // List<Ingredient> idAndCount = new ArrayList<>(); erstellt eine leere Liste namens idAndCount,
+        // die die Zutaten entsprechend der Anzahl (Menge) enthält.
+        List<Ingredient> idAndCount = new ArrayList<>();
+
+        // Die Schleife for (Map.Entry<Long, Integer> entry : idsAndCount.entrySet()) durchläuft die Einträge der Map idsAndCount,
+        // die die Zutaten-IDs und die gewünschten Mengen enthält.
+        for (Map.Entry<Long, Integer> entry : idsAndCount.entrySet()) {
+
+        // In jedem Schleifendurchlauf werden der Schlüssel (Long id)
+        // und der Wert (Integer count) des aktuellen Eintrags abgerufen.
+            Long id = entry.getKey();
+            Integer count = entry.getValue();
+
+        //  Mit Ingredient ingredient = articles.get(id); wird die entsprechende Zutat
+        //  aus der Map articles basierend auf der Zutaten-ID abgerufen.
+            Ingredient ingredient = articles.get(id);
+
+        //  Wenn die Zutat (ingredient) nicht null ist, d.h. wenn sie in der Map articles vorhanden ist,
+        //  wird eine innere Schleife gestartet. Diese Schleife fügt die Zutat count-mal zur Liste idAndCount hinzu.
+            if (ingredient != null) {
+                for (int i = 0; i < count; i++) {
+                    idAndCount.add(ingredient);
+
+                }
+            }
+        }
+        // Nachdem alle Einträge in der Map idsAndCount verarbeitet wurden,
+        // wird die Liste idAndCount als Ergebnis zurückgegeben.
+        return idAndCount; // TODO hier implementieren und korrekte Ergebnis-Liste zurückgeben
     }
 }
