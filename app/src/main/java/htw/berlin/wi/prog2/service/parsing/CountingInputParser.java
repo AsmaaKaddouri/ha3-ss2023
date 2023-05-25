@@ -14,7 +14,7 @@ public class CountingInputParser implements ExtendableInputParser {
         for (String word : words) {
             Long id = keywordsToIds.get(word);
             if (id != null) {
-                countingInputParser_idsAndCountInput .put(id, countingInputParser_idsAndCountInput .getOrDefault(id, 0) + 1);
+                countingInputParser_idsAndCountInput.put(id, countingInputParser_idsAndCountInput .getOrDefault(id, 0) + 1);
 
             }
         }
