@@ -7,17 +7,17 @@ public class CountingInputParser implements ExtendableInputParser {
 
     @Override
     public Map<Long, Integer> idsAndCountFromInput(String inputLine, Map<String, Long> keywordsToIds) {
-        Map<Long, Integer> result = new HashMap<>();
+        Map<Long, Integer> countingInputParser_idsAndCountInput = new HashMap<>();
 
         String[] words = inputLine.split("[ ,.-]");
 
         for (String word : words) {
             Long id = keywordsToIds.get(word);
             if (id != null) {
-                result.put(id, result.getOrDefault(id, 0) + 1);
+                countingInputParser_idsAndCountInput .put(id, countingInputParser_idsAndCountInput .getOrDefault(id, 0) + 1);
 
             }
         }
-        return result; // TODO hier implementieren und die korrekte Map zurückgeben
+        return countingInputParser_idsAndCountInput ; // TODO hier implementieren und die korrekte Map zurückgeben
     }
 }
